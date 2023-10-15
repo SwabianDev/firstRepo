@@ -40,7 +40,7 @@ const StartGameScreen = ({ onConfirmNumber }) => {
           <DefaultButton onPress={resetInputHandler}>Reset</DefaultButton>
         </View>
         <View style={styles.buttonContainer}>
-          <DefaultButton onPress={confirmInputHandler}>Confirm</DefaultButton>
+          <DefaultButton onPress={confirmInputHandler}>Cofirm</DefaultButton>
         </View>
       </View>
     </View>
