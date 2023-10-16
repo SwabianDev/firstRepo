@@ -8,9 +8,9 @@ styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#ddb52f',
+    color: 'white',
     textAlign: 'center',
-    borderColor: '#ddb52f',
+    borderColor: 'white',
     borderWidth: 2,
     padding: 12,
     marginBottom: 24,
