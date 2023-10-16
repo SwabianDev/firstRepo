@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Alert } from 'react-native'
-
+import { View, StyleSheet, Alert, Platform } from 'react-native'
+import InstructionText from '../components/InstructionText'
 import NumberContainer from '../components/game/NumberContainer'
 import DefaultButton from '../components/DefaultButton'
 import Title from '../components/Title'
+import Card from '../components/Card'
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min
@@ -57,13 +58,17 @@ function GameScreen({ userNumber, onGameOver }) {
     <View style={styles.screen}>
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
-        <Text>Higher or lower?</Text>
-        <View>
-          <DefaultButton onPress={nextGuessHandler.bind(this, 'lower')}>-</DefaultButton>
-          <DefaultButton onPress={nextGuessHandler.bind(this, 'greater')}>+</DefaultButton>
+      <Card>
+        <InstructionText style={styles.text}>Higher or lower?</InstructionText>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <DefaultButton onPress={nextGuessHandler.bind(this, 'lower')}>-</DefaultButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <DefaultButton onPress={nextGuessHandler.bind(this, 'greater')}>+</DefaultButton>
+          </View>
         </View>
-      </View>
+      </Card>
       {/* <View>LOG ROUNDS</View> */}
     </View>
   )
@@ -75,5 +80,15 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+    marginTop: Platform.OS === 'android' ? 60 : 40,
+  },
+  text: {
+    marginBottom: 12,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+  },
+  buttonContainer: {
+    flex: 1,
   },
 })

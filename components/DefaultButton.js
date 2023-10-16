@@ -2,9 +2,9 @@ import React from 'react'
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import COLORS from '../constants/colors'
 
-const DefaultButton = ({ children, onPress }) => {
+const DefaultButton = ({ children, onPress, style }) => {
   return (
-    <View style={styles.buttonOuterContainer}>
+    <View style={[styles.buttonOuterContainer, style]}>
       <Pressable
         onPress={onPress}
         style={({ pressed }) =>
